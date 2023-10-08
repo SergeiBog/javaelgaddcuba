@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-javaelgaddcuba" insertBefore="administration" caption="mainMsg://menu_config.application-javaelgaddcuba">
+        <item screen="javaelgaddcuba_Customer.browse" caption="mainMsg://menu_config.javaelgaddcuba_Customer.browse"/>
+        <item screen="javaelgaddcuba_Product.browse" caption="mainMsg://menu_config.javaelgaddcuba_Product.browse"/>
+        <item screen="javaelgaddcuba_Supplier.browse" caption="mainMsg://menu_config.javaelgaddcuba_Supplier.browse"/>
+        <item screen="javaelgaddcuba_RequestItem.browse"
+              caption="mainMsg://menu_config.javaelgaddcuba_RequestItem.browse"/>
+        <item screen="javaelgaddcuba_Request.browse" caption="mainMsg://menu_config.javaelgaddcuba_Request.browse"/>
+    </menu>
+</menu-config>

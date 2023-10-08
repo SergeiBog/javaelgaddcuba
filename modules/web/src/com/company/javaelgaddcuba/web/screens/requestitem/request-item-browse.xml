@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://requestItemBrowse.caption"
+        focusComponent="requestItemsTable"
+        messagesPack="com.company.javaelgaddcuba.web.screens.requestitem">
+    <data readOnly="true">
+        <collection id="requestItemsDc"
+                    class="com.company.javaelgaddcuba.entity.RequestItem">
+            <view extends="_local">
+                <property name="product" view="_minimal">
+                    <property name="cost"/>
+                </property>
+                <property name="request" view="_minimal">
+                    <property name="customer" view="_minimal">
+                        <property name="city"/>
+                    </property>
+                    <property name="supplier" view="_minimal"/>
+                </property>
+            </view>
+            <loader id="requestItemsDl">
+                <query>
+                    <![CDATA[select e from javaelgaddcuba_RequestItem e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="requestItemsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="requestItemsTable"
+                dataLoader="requestItemsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="requestItemsTable"
+                    width="100%"
+                    dataContainer="requestItemsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="product"/>
+                <column id="request"/>
+                <column id="volume"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="requestItemsTable.create"/>
+                <button id="editBtn" action="requestItemsTable.edit"/>
+                <button id="removeBtn" action="requestItemsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>
